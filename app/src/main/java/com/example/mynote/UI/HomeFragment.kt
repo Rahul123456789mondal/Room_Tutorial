@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import com.example.mynote.R
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
 
@@ -17,5 +19,14 @@ class HomeFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
 
+        add_Button.setOnClickListener {
+
+            // It will work to navigate the direction using the safe arg plugins
+            val actionBuilder = HomeFragmentDirections.actionHomeFragmentToAddNoteFragment()
+            Navigation.findNavController(it).navigate(actionBuilder)
+        }
+    }
 }
