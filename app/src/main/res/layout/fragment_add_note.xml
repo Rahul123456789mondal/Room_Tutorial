@@ -9,19 +9,20 @@
 
 
     <EditText
-        android:id="@+id/noteTitle"
+        android:id="@+id/titleNote"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:ems="15"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:hint="@string/name"
-        android:inputType="textPersonName"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:autofillHints="" />
+        />
 
     <EditText
         android:id="@+id/writeNote"
@@ -30,13 +31,28 @@
         android:layout_height="0dp"
         android:ems="10"
         android:gravity="top"
-        android:inputType="textPersonName"
+        android:inputType="textMultiLine"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:hint="@string/enter_the_note"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/button_save"
         app:layout_constraintEnd_toEndOf="@+id/noteTitle"
         app:layout_constraintStart_toStartOf="@+id/noteTitle"
         app:layout_constraintTop_toBottomOf="@+id/noteTitle"
-        android:autofillHints="" />
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_save"
+        android:src="@drawable/ic_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tint="@android:color/white"
+        android:clickable="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/writeNote"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

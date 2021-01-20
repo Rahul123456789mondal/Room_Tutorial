@@ -3,6 +3,7 @@ package com.example.mynote.DB
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 /*
     **************************************** For Learning **********************************
@@ -30,10 +31,11 @@ import androidx.room.PrimaryKey
  */
 @Entity
 data class Note(
-        @PrimaryKey(autoGenerate = true)
-        val id : Int,
         @ColumnInfo(name = "Title")
         val title : String,
         val note : String
 
-)
+): Serializable {
+        @PrimaryKey(autoGenerate = true)
+        var id : Int = 0
+}
