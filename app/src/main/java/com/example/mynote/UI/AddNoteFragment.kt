@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.*
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import com.example.mynote.DB.Note
 import com.example.mynote.DB.NoteDatabase
 import com.example.mynote.R
@@ -42,6 +43,9 @@ class AddNoteFragment : Basefragment() {
                 context?.let {
                     NoteDatabase(it).getNoteDao().addNote(note)
                     it.toast("Note Saved")
+                    
+                    val action = AddNoteFragmentDirections.actionAddNoteFragmentToHomeFragment()
+                    Navigation.findNavController(view).navigate(action)
                 }
             }
 
